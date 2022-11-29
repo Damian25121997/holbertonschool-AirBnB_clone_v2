@@ -3,6 +3,7 @@
 
     Return:
         Hello HBNB!
+        HBNB
 """
 
 
