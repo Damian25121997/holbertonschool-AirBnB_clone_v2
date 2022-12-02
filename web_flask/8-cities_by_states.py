@@ -7,7 +7,6 @@ from flask import Flask
 from flask import render_template
 
 
-
 app = Flask(__name__)
 
 
@@ -24,7 +23,6 @@ def states_list():
     """display a HTML page: (inside the tag BODY)"""
     context = storage.all(State).values()
     return render_template('7-states_list.html', states=context)
-
 
 
 @app.route('/cities_by_states', strict_slashes=False)
