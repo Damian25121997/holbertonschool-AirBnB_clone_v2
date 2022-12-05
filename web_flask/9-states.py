@@ -24,7 +24,7 @@ def states():
     from models.state import State
     """ display states in html page
     """
-    context = storage.all(State).values()
+    context = storage.all(State)
     return render_template('9-states.html', states=context)
 
 
@@ -34,13 +34,10 @@ def states_id(id):
     from models.state import State
     """ display state in html page
     """
-    states = storage.all(State)
-    key = 'State.{}'.format(id)
-    if key in states:
-        state = states[key]
-    else:
-        state = None
-    return render_template('9-states.html', state=state)
+    for state in storage.all('State').values():
+        if state.id == id:
+            return render_template('9-states.html', state=state)
+        return render_template('9-states.html')
 
 
 if __name__ == '__main__':
