@@ -24,9 +24,8 @@ def states():
     from models.state import State
     """ display states in html page
     """
-    context = storage.all(State).values()
-    print(context)
-    return render_template('7-states_list.html', states=context)
+    context = storage.all("State")
+    return render_template('9-states.html', states=context)
 
 
 @app.route('/states/<id>', strict_slashes=False)
@@ -35,7 +34,7 @@ def states_id(id):
     from models.state import State
     """ display state in html page
     """
-    states = storage.all(State)
+    states = storage.all("State")
     key = 'State.{}'.format(id)
     if key in states:
         state = states[key]
